@@ -5,29 +5,38 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-    const {logIn} = useContext(AuthContext)
+    const { logIn, loginWithGoogle } = useContext(AuthContext)
     const [loggedinError, setloggedinError] = useState('')
 
-    const handleLogin = event =>{
+    const handleLogin = event => {
         event.preventDefault()
         const form = event.target
         const email = form.email.value;
         const password = form.password.value;
 
-        const user = { email, password}
+        const user = { email, password }
         console.log(user);
         logIn(email, password)
-        .then(result =>{
-            console.log(result.user);
-            toast.success('Logged in Successfully');
-        })
-        .catch(error =>{
-            const errorMessage = error.message
-            setloggedinError(errorMessage)
-        })
+            .then(result => {
+                console.log(result.user);
+                toast.success('Logged in Successfully');
+            })
+            .catch(error => {
+                const errorMessage = error.message
+                setloggedinError(errorMessage)
+            })
 
     }
- 
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     return (
         <div>
 
@@ -56,11 +65,14 @@ const Login = () => {
                         </div>
                     </form>
                     <div className="px-8 pb-3 font-semibold text-red-600">
-                    {
-                        loggedinError ? <span>{loggedinError}</span> : ''
-                    }
+                        {
+                            loggedinError ? <span>{loggedinError}</span> : ''
+                        }
                     </div>
-                    <div className="px-8 pb-3 font-semibold">
+                    <div className="form-control px-8">
+                       <button onClick={handleGoogleLogin} className="btn btn-primary">Login With Google</button>
+                    </div>
+                    <div className="px-8 text-center pb-3 pt-2 font-semibold">
                         <p>New to here? <Link to="/register" className=" text-green-600 font-bold"> SignUp Now</Link></p>
                     </div>
                 </div>
