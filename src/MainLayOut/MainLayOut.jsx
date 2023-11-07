@@ -9,7 +9,6 @@ const MainLayOut = () => {
             <Navbar></Navbar>
             <section className=' max-w-7xl mx-auto'>
             <Outlet></Outlet>
-            
             </section>
             <Footer></Footer>
         </div>

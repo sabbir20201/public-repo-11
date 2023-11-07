@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const AddJobs = () => {
-
-    const handleAddjobs = event =>{
+    const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
+    const handleAddjobs = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
@@ -22,7 +27,7 @@ const AddJobs = () => {
 
         }
         console.log(addUser);
-        fetch("http://localhost:5000/api/v1/postjob",{
+        fetch("http://localhost:5000/api/v1/postjob", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -30,8 +35,15 @@ const AddJobs = () => {
             body: JSON.stringify(addUser)
 
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => {
+                res.json()
+                // reset()
+            })
+            .then(data => {
+                console.log(data);
+                toast.success('job post successfully')
+                navigate('/mypostedjob')
+            })
     }
     return (
         <div>
@@ -45,7 +57,7 @@ const AddJobs = () => {
                                 <label className="label">
                                     <span className="label-text">Email of the employer</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" name="email" defaultValue={user?.email} disabled placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -69,13 +81,19 @@ const AddJobs = () => {
                                 <label className="label">
                                     <span className="label-text">Deadline</span>
                                 </label>
-                                <input type="text" name="deadline" placeholder="Deadline" className="input input-bordered" required />
+                                <input type="date" name="deadline" placeholder="Deadline" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Category-these</span>
                                 </label>
-                                <input type="text" name="category" placeholder="Category-these" className="input input-bordered" required />
+                                <select name="category" className="select select-primary w-full" required>
+                                    <option disabled selected>Choose a category..</option>
+                                    <option>web development</option>
+                                    <option>graphic design</option>
+                                    <option>digital marketing</option>
+                         
+                                </select>
                             </div>
 
                             <div className="form-control">

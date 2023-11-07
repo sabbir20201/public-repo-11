@@ -7,12 +7,14 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
-    const [loading, setLoading] = useState();
+    const [loading, setLoading] = useState(null);
 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const logIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
 
     }
@@ -28,6 +30,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubsCribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            setLoading(false)
             console.log(user, 'OBSERVE USER', currentUser);
         })
         return unSubsCribe
@@ -35,11 +38,12 @@ const AuthProvider = ({ children }) => {
 
     const value = {
         user,
-        loading,
+      
         createUser,
         logIn,
         logOuT,
-        loginWithGoogle
+        loginWithGoogle,
+        setLoading
 
 
     }

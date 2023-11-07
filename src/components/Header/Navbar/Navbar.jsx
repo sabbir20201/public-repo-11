@@ -5,11 +5,10 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 const Navbar = () => {
     const { user, logOuT } = useContext(AuthContext)
 
-    console.log(user);
     const handleLogOut = () => {
         logOuT()
             .then(result => {
-                console.log(result.user);
+                console.log(result?.user);
             })
             .catch(error => {
                 console.log(error);
@@ -20,9 +19,9 @@ const Navbar = () => {
     const navLinks = <>
         <li> <Link to="/">Home</Link></li>
         <li><Link to="addjobs">Add job</Link></li>
-        <li><Link to="mypostedjobs">My posted jobs</Link></li>
+        <li><Link to="/mypostedjob">My posted jobs</Link></li>
         <li><Link to="mybids">My Bids</Link></li>
-        <li><Link to="myreques">Bid Requests</Link></li>
+        <li><Link to="bidrequest">Bid Requests</Link></li>
         <li><Link to="/register">register</Link></li>
 
 
@@ -39,7 +38,12 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+
+                    <Link to="/">
+                        <img className=" h-12 w-12 rounded-3xl" src="https://i.ibb.co/jJLdHFt/Benefits-of-online-marketing.png" />
+
+                    </Link>
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -49,10 +53,10 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ? <span>{user.email}
-                           
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+
+                            <label tabIndex={0} className="btn btn-ghost btn-circle">
                                 <div className="w-10 rounded-full">
-                                    <img src={user?.image}  />
+                                    <img src={user.photoURL} alt="user profile" />
                                 </div>
                             </label>
                         </span> : ''
