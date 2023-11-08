@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
-    const [registerError, setRegisterError] = useState('')
-    const [success, setSuccess] = useState('')
+    const { createUser } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState('');
+    const navigate = useNavigate();
     // console.log(createUser);
     const handleRegister = event => {
         event.preventDefault()
@@ -15,19 +15,20 @@ const Register = () => {
         const photoUrl = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        const user = { name, photoUrl, email, password }
-        setRegisterError(' ')
-        setSuccess(' ')
+     
         if (password.length < 6) {
             setRegisterError('Error: Password shoud be at least six characters or longer')
             return
+        } else if (!/[A-Z]/.test(password)){
+            setRegisterError('Error: Password shoud be at least one uppercase')
+            return
         }
-        console.log(user);
+
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
                 toast.success('Register Successfully');
-
+                navigate('/')
             })
             .catch(error => {
                 const errorMessage = error.message

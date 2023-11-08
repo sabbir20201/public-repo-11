@@ -14,7 +14,7 @@ const Login = () => {
         const form = event.target
         const email = form.email.value;
         const password = form.password.value;
-
+        console.log(email, password);
         const user = { email, password }
         console.log(user);
         logIn(email, password)
@@ -22,9 +22,11 @@ const Login = () => {
                 console.log(result.user);
                 toast.success('Logged in Successfully');
                 navigate('/')
+      
             })
             .catch(error => {
                 const errorMessage = error.message
+                console.log(errorMessage);
                 setloggedinError(errorMessage)
             })
 
