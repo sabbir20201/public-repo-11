@@ -1,5 +1,14 @@
 # React + Vite
 
+* in this project you firstly you have to register
+* you can add your jobs 
+* you can update your job if you need
+* you can delete your posted job if you want
+* without login you can not see your posted job
+
+
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
