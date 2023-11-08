@@ -34,9 +34,10 @@ const Category = () => {
     }, [categoryDetails])
     return (
         <div className=' py-12'>
-    <h1 className='tetx-center text-4xl font-bold'>BrowseByCategory </h1>
+    <h1 className='text-center text-4xl font-bold pb-10 '>BrowseByCategory </h1>
+    <div className=''>
+
             <Tabs>
-         
                 <TabList>
                     {
                         categores.map(item => (
@@ -60,7 +61,7 @@ const Category = () => {
                                             <p><span className="font-bold text-xl">Deadline :</span> <span className="text-xl font-semibold">{item.deadline}</span></p>
                                             <p><span className="font-bold text-xl">description :</span> <span className="text-xl font-semibold">{item.description}</span></p>
                                             <div className="card-actions">
-                                                <Link>
+                                                <Link to={`/details/${item._id}`}>
                                                     <button className="btn btn-primary">Bid Now</button>
                                                 </Link>
                                             </div>
@@ -119,6 +120,7 @@ const Category = () => {
                 </TabPanel>
               
             </Tabs>
+            </div>
             </div>
        
     );
