@@ -57,7 +57,7 @@ const Category = () => {
                                         <div className="border border-black text-start bg-base-100">
                                             <div className="card-body items-start text-start">
                                                 <p><span className="font-bold text-xl">Job Title :</span> <span className="text-xl font-semibold">{item.jobTitle}</span></p>
-                                                <p><span className="font-bold text-xl">Minimum Price :</span> <span className="text-xl font-semibold">{item.minimumPrice}</span></p>
+                                                <p><span className="font-bold text-xl"> Price : $</span><span className="text-xl font-semibold">{item.minimumPrice} - ${item.maximumPrice}</span></p>
                                                 <p><span className="font-bold text-xl">Deadline :</span> <span className="text-xl font-semibold">{item.deadline}</span></p>
                                                 <p><span className="font-bold text-xl">description :</span> <span className="text-xl font-semibold">{item.description}</span></p>
                                                 <div className="card-actions">
