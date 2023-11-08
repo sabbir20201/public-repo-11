@@ -20,8 +20,8 @@ const Category = () => {
 
 
     return (
-        <div>
-            <h1>category</h1>
+        <div className=' my-20'>
+            <h1 className=' py-6 text-center text-4xl font-bold'>Browse By Category</h1>
             <Tabs>
             <TabList>
             {

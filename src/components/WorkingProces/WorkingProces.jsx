@@ -3,22 +3,22 @@ const WorkingProces = () => {
     const data = [
         {
             "id": "1",
-            "title": "Web Development",
+            "title": "Research",
             "img": "https://i.ibb.co/hW14kdQ/download.jpg"
         },
         {
             "id": "2",
-            "title": "Graphic Design",
+            "title": "Strategy",
             "img": "https://i.ibb.co/K0RsHC9/images.jpg"
         },
         {
             "id": "3",
-            "title": "Digital Marketing",
+            "title": "Development",
             "img": "https://i.ibb.co/RD9zH3M/results-group-finance-account-success-analyst.jpg"
         },
         {
             "id": "4",
-            "title": "Mobile App Development",
+            "title": "Optimization",
             "img": "https://i.ibb.co/VLPhrg1/team-work-process-young-business-managers-crew-working-with-new-startup-project-laptop-wood-table-ty.jpg"
         }
     ]
