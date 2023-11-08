@@ -11,7 +11,7 @@ import PrivateRoutes from './PrivateRoutes';
 import UpdateJob from '../pages/MyPostedJobs/UpdateJob';
 import MyBids from '../pages/MyBids/MyBids';
 import BidRequest from '../pages/BidRequest/BidRequest';
-import Category from '../pages/Category/Category';
+
 
 const Routes = createBrowserRouter([
     {
@@ -21,42 +21,44 @@ const Routes = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home> ,
-                                                           
+                element: <Home></Home>,
+
             },
-            {
-                path: "/:category",
-                element:<Home></Home>,
-                loader: ({params})=> fetch(`http://localhost:5000/${params.category}`)     
-            },
+            // {
+            //     path: "/:category",
+            //     element: <Home></Home>,
+            //     loader: ({ params }) => fetch(`http://localhost:5000/api/v1/jobs/${params.category}`)
+
+            // },
+
             {
                 path: "/addjobs",
-                element:<AddJobs></AddJobs>                                                   
+                element: <AddJobs></AddJobs>
             },
             {
                 path: "/mypostedjob",
-                element: <PrivateRoutes><MyPostedJobs></MyPostedJobs> </PrivateRoutes>                                             
+                element: <PrivateRoutes><MyPostedJobs></MyPostedJobs> </PrivateRoutes>
             },
             {
                 path: "/updatejob/:id",
-                element: <UpdateJob></UpdateJob> ,
-                loader: ({params})=> fetch(`http://localhost:5000/api/v1/updatejob/${params.id}`)                                           
+                element: <UpdateJob></UpdateJob>,
+                loader: ({ params }) => fetch(`http://localhost:5000/api/v1/updatejob/${params.id}`)
             },
             {
                 path: "/mybids",
-                element:<MyBids></MyBids>                                           
+                element: <MyBids></MyBids>
             },
             {
                 path: "/bidrequest",
-                element: <BidRequest></BidRequest>                                              
+                element: <BidRequest></BidRequest>
             },
             {
                 path: "/login",
-                element: <Login></Login>                                                
+                element: <Login></Login>
             },
             {
                 path: "/register",
-                element: <Register></Register>                                               
+                element: <Register></Register>
             },
         ]
     }
