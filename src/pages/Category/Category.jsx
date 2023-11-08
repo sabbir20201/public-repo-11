@@ -34,7 +34,7 @@ const Category = () => {
     }, [categoryDetails])
     return (
         <div className=' py-12'>
-    <h1></h1>
+    <h1 className='tetx-center text-4xl font-bold'>BrowseByCategory </h1>
             <Tabs>
          
                 <TabList>
