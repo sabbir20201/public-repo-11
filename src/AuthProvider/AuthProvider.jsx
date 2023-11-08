@@ -7,7 +7,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -19,6 +19,7 @@ const AuthProvider = ({ children }) => {
 
     }
     const logOuT = () => {
+        setLoading(true)
         return signOut(auth)
 
     }
@@ -38,12 +39,12 @@ const AuthProvider = ({ children }) => {
 
     const value = {
         user,
-      
+        loading,
         createUser,
         logIn,
         logOuT,
         loginWithGoogle,
-        setLoading
+        
 
 
     }

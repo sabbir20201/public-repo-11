@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
-const MyPostedJobCards = ({ job }) => {
+const MyPostedJobCards = ({ job, handleDelte }) => {
     const { email, jobTitle, _id, minimumPrice, deadline, category, maximumPrice, description } = job
- 
+
+  
     return (
         <div>
             <div className="card max-w-3xl border border-black mx-auto text-start bg-base-100">
@@ -20,8 +22,8 @@ const MyPostedJobCards = ({ job }) => {
                         <Link to={`/updatejob/${_id}`}>
                             <button className="btn btn-primary">Update</button>
                         </Link>
-                        <Link to={`/updatejob/${_id}`}>
-                            <button className="btn btn-primary">delete</button>
+                        <Link>
+                            <button onClick={() => handleDelte(_id)} className="btn btn-primary">delete</button>
                         </Link>
                     </div>
                 </div>

@@ -19,10 +19,13 @@ const Navbar = () => {
     const navLinks = <>
         <li> <Link to="/">Home</Link></li>
         <li><Link to="addjobs">Add job</Link></li>
-        <li><Link to="/mypostedjob">My posted jobs</Link></li>
+        {
+            user && user ?  <li><Link to="/mypostedjob">My posted jobs</Link></li> : ''
+        }
+       
         <li><Link to="mybids">My Bids</Link></li>
         <li><Link to="bidrequest">Bid Requests</Link></li>
-        <li><Link to="/register">register</Link></li>
+       
 
 
     </>

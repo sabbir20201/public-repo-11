@@ -114,7 +114,7 @@ const AddJobs = () => {
                         <input type="text" name="description" placeholder="Description" className="input input-bordered" required />
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Add job button</button>
+                        <button className="btn btn-primary">Add a job </button>
                     </div>
                 </form>
             </div>

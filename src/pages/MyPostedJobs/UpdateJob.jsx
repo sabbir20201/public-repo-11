@@ -42,7 +42,7 @@ const UpdateJob = () => {
             })
             .then(data => {
                 console.log(data);
-                toast.success('job post successfully')
+                toast.success('Updated successfully')
                 // navigate('/mypostedjob')
             })
     }
@@ -118,7 +118,7 @@ const UpdateJob = () => {
                     <input type="text" name="description" defaultValue={description} placeholder="Description" className="input input-bordered" required />
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn btn-primary">Update</button>
+                    <button className="btn btn-primary">Update job</button>
                 </div>
             </form>
         </div>

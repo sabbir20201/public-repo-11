@@ -40,6 +40,7 @@ const Category = () => {
                     data?.map(item => <li>{item?.jobTitle}</li>)
                 }
             </TabPanel>
+         
           
           </Tabs>
         </div>
