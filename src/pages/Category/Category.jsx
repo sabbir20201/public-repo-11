@@ -21,7 +21,7 @@ const Category = () => {
 
     return (
         <div className=' my-20'>
-            <h1 className=' py-6 text-center text-4xl font-bold'>Browse By Category</h1>
+            <h1 className="text-4xl text-center font-bold">Browse By Category</h1>
             <Tabs>
             <TabList>
             {
