@@ -4,29 +4,35 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
-    const [registerError,setRegisterError] = useState('')
+    const { createUser } = useContext(AuthContext)
+    const [registerError, setRegisterError] = useState('')
+    const [success, setSuccess] = useState('')
     // console.log(createUser);
-    const handleRegister = event =>{
+    const handleRegister = event => {
         event.preventDefault()
         const form = event.target
         const name = form.name.value;
         const photoUrl = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-
-        const user = {name, photoUrl, email, password}
+        const user = { name, photoUrl, email, password }
+        setRegisterError(' ')
+        setSuccess(' ')
+        if (password.length < 6) {
+            setRegisterError('Error: Password shoud be at least six characters or longer')
+            return
+        }
         console.log(user);
         createUser(email, password)
-        .then(result =>{
-            console.log(result.user);
-            toast.success('Register Successfully');
+            .then(result => {
+                console.log(result.user);
+                toast.success('Register Successfully');
 
-        })
-        .catch(error =>{
-           const errorMessage = error.message
-           setRegisterError(errorMessage)
-        })
+            })
+            .catch(error => {
+                const errorMessage = error.message
+                setRegisterError(errorMessage)
+            })
 
     }
     return (
@@ -52,7 +58,7 @@ const Register = () => {
                         </label>
                         <input type="email" name="email" placeholder="Your email" className="input input-bordered" required />
                     </div>
-                    
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-medium">Password</span>
@@ -67,12 +73,12 @@ const Register = () => {
                     </div>
                 </form>
                 <div className="px-8 pb-3 font-semibold text-red-600">
-                {
-                    registerError ? <span>{registerError}</span> : ''
-                }
+                    {
+                        registerError ? <span>{registerError}</span> : ''
+                    }
                 </div>
                 <div className="px-8 pb-3 font-semibold">
-                <p>Already have an account? <Link to="/login" className=" text-green-600 font-bold">Login</Link></p>
+                    <p>Already have an account? <Link to="/login" className=" text-green-600 font-bold">Login</Link></p>
                 </div>
             </div>
         </div>
