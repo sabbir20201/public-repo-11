@@ -9,7 +9,7 @@ const MyPostedJobCards = ({ job, handleDelte }) => {
   
     return (
         <div>
-            <div className="card max-w-3xl border border-black mx-auto text-start bg-base-100">
+            <div className="card transition duration-300 ease-in-out max-w-3xl border border-black mx-auto text-start shadow-lg group block rounded-lg p-6 bg-white ring-1 ring-slate-900/5 space-y-3 hover:bg-sky-400 hover:ring-sky-400">
                 <div className="card-body items-start text-start">
                     <p><span className="font-bold text-xl">Email :</span> <span className="text-xl font-semibold">{email}</span></p>
                     <p><span className="font-bold text-xl">Job Title :</span> <span className="text-xl font-semibold">{jobTitle}</span></p>

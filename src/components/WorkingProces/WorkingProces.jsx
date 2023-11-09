@@ -27,7 +27,7 @@ const WorkingProces = () => {
         <div className=" my-20">
             <h1 className="text-center text-3xl font-bold py-3">Our Working Process</h1>
             <p className="text-center text-base text-gray-700 mb-8 max-w-2xl mx-auto">At our organization, our working process is efficient, collaborative, and structured. We prioritize planning, open communication, and excellence, ensuring successful project delivery and client satisfaction.</p>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
 
                 {
                     data.map((item) => (

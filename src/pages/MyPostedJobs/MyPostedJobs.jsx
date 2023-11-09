@@ -52,7 +52,7 @@ const MyPostedJobs = () => {
     return (
         <div className="my-12">
 
-            <div className="gap-5 grid">
+            <div className="gap-5 grid grid-cols-1 lg:grid-cols-2">
                 {
                     jobs.map(job => <MyPostedJobCards key={job._id} job={job} handleDelte={handleDelte}></MyPostedJobCards>)
                 }

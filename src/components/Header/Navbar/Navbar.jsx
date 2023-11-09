@@ -23,8 +23,9 @@ const Navbar = () => {
             user && user ?  <li><Link to="/mypostedjob">My posted jobs</Link></li> : ''
         }
        
-        <li><Link to="mybids">My Bids</Link></li>
-        <li><Link to="bidrequest">Bid Requests</Link></li>
+        <li><Link to="/mybids">My Bids</Link></li>
+        <li><Link to="/bidrequest">Bid Requests</Link></li>
+ 
        
 
 
