@@ -12,7 +12,7 @@ import UpdateJob from '../pages/MyPostedJobs/UpdateJob';
 import MyBids from '../pages/MyBids/MyBids';
 import BidRequest from '../pages/BidRequest/BidRequest';
 import Details from '../pages/Details/Details';
-import FilterJob from '../pages/frlterJob/FilterJob';
+
 
 
 const Routes = createBrowserRouter([
